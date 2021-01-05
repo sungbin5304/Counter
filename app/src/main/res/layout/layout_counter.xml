@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipToPadding="false"
+    android:orientation="vertical"
+    android:padding="@dimen/margin_default"
+    tools:ignore="HardcodedText">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_status_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_index"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorGray"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="1" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_half"
+            android:textColor="@color/colorBlack"
+            android:textSize="19sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_index"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="술래잡기" />
+
+        <TextView
+            android:id="@+id/tv_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_default"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_name"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="50010 점" />
+
+        <ImageView
+            android:id="@+id/iv_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="clear"
+            android:src="@drawable/ic_baseline_clear_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <HorizontalScrollView
+        android:id="@+id/hsv_counter_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_half"
+        android:clipToPadding="false">
+
+        <LinearLayout
+            android:id="@+id/ll_counter_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="8">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_plus_1"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_twice_half"
+                android:layout_weight="1"
+                android:text="+1" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_plus_10"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_twice_half"
+                android:layout_marginEnd="@dimen/margin_twice_half"
+                android:layout_weight="1"
+                android:text="+10" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_plus_100"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_twice_half"
+                android:layout_marginEnd="@dimen/margin_twice_half"
+                android:layout_weight="1"
+                android:text="+100" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_plus_1000"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_twice_half"
+                android:layout_marginEnd="@dimen/margin_twice_half"
+                android:layout_weight="1"
+                android:text="+1000" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_minus_1"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_twice_half"
+                android:layout_marginEnd="@dimen/margin_twice_half"
+                android:layout_weight="1"
+                android:text="-1" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_minus_10"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_twice_half"
+                android:layout_marginEnd="@dimen/margin_twice_half"
+                android:layout_weight="1"
+                android:text="-10" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_minus_100"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_twice_half"
+                android:layout_marginEnd="@dimen/margin_twice_half"
+                android:layout_weight="1"
+                android:text="-100" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_minus_1000"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_twice_half"
+                android:layout_weight="1"
+                android:text="-1000" />
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+</LinearLayout>
