@@ -1,5 +1,20 @@
 <resources>
     <string name="app_name">Counter</string>
 
+    <string name="create">생성</string>
+    <string name="reset">reset</string>
+    <string name="remove">remove</string>
+
+    <string name="dialog_input_new_counter_name">새로운 항목 이름 입력…</string>
+
     <string name="counter_count">%d 점</string>
+    <string name="counter_confirm_delete">삭제하려면 길게 눌러주세요!</string>
+    <string name="counter_plus_1">+1</string>
+    <string name="counter_plus_10">+10</string>
+    <string name="counter_plus_100">+100</string>
+    <string name="counter_plus_1000">+1000</string>
+    <string name="counter_minus_1">-1</string>
+    <string name="counter_minus_10">-10</string>
+    <string name="counter_minus_100">-100</string>
+    <string name="counter_minus_1000">-1000</string>
 </resources>

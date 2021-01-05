@@ -4,6 +4,9 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.sungbin.androidutils.util.ToastLength
+import com.sungbin.androidutils.util.ToastType
+import com.sungbin.androidutils.util.ToastUtil
 import me.sungbin.counter.databinding.LayoutCounterBinding
 
 
@@ -27,8 +30,20 @@ class CounterAdapter(private val items: ArrayList<String>) :
 
         fun bindViewHolder(index: Int) {
             setCount(0)
-            binding.tvIndex.text = index.toString()
-            binding.ivClear.setOnClickListener { setCount(0) }
+            binding.tvName.text = items[index]
+            binding.ivReset.setOnClickListener { setCount(0) }
+
+            binding.ivRemove.setOnClickListener {
+                ToastUtil.show(context,
+                    context.getString(R.string.counter_confirm_delete),
+                    ToastLength.SHORT,
+                    ToastType.INFO)
+            }
+            binding.ivRemove.setOnLongClickListener {
+                items.removeAt(index)
+                notifyDataSetChanged()
+                return@setOnLongClickListener true
+            }
 
             binding.btnPlus1.setOnClickListener { setCount(count + 1) }
             binding.btnPlus10.setOnClickListener { setCount(count + 10) }

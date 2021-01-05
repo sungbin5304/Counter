@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clipChildren="false"
     android:clipToPadding="false"
     android:padding="@dimen/margin_default"
     tools:context=".MainActivity"
@@ -13,27 +14,19 @@
         android:id="@+id/rv_counter"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:clipChildren="false"
         android:orientation="vertical"
+        android:overScrollMode="never"
+        android:scrollbars="none"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_clear"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_clear_24"
-        app:backgroundTint="@color/colorPrimary"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:tint="@color/colorWhite" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/margin_half"
         android:src="@drawable/ic_baseline_add_24"
-        app:backgroundTint="@color/colorPrimary"
-        app:layout_constraintBottom_toTopOf="@+id/fab_clear"
+        app:backgroundTint="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:tint="@color/colorWhite" />
 
