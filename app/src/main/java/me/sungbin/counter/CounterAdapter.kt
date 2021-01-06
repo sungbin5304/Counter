@@ -31,6 +31,7 @@ class CounterAdapter(private val items: ArrayList<String>) :
         fun bindViewHolder(index: Int) {
             setCount(0)
             binding.tvName.text = items[index]
+            binding.tvIndex.text = index.toString()
             binding.ivReset.setOnClickListener { setCount(0) }
 
             binding.ivRemove.setOnClickListener {
