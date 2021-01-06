@@ -14,7 +14,10 @@ import me.sungbin.counter.databinding.LayoutCounterBinding
  * Created by SungBin on 2021-01-05.
  */
 
-class CounterAdapter(private val items: ArrayList<String>) :
+class CounterAdapter(
+    private val items: ArrayList<Counter>,
+    private val vm: CounterViewModel,
+) :
     RecyclerView.Adapter<CounterAdapter.ViewHolder>() {
 
     inner class ViewHolder(
@@ -24,13 +27,15 @@ class CounterAdapter(private val items: ArrayList<String>) :
         RecyclerView.ViewHolder(binding.root) {
 
         private val count: Int get() = binding.tvCount.text.split(" ")[0].toInt()
-        private fun setCount(count: Int) {
-            binding.tvCount.text = context.getString(R.string.counter_count, count)
-        }
 
         fun bindViewHolder(index: Int) {
-            setCount(0)
-            binding.tvName.text = items[index]
+            fun setCount(count: Int) {
+                vm.counts[items[index].uuid] = count
+                binding.tvCount.text = context.getString(R.string.counter_count, count)
+            }
+
+            setCount(vm.counts[items[index].uuid] ?: 0)
+            binding.tvName.text = items[index].name
             binding.tvIndex.text = index.toString()
             binding.ivReset.setOnClickListener { setCount(0) }
 

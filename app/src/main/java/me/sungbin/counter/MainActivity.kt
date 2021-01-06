@@ -6,12 +6,14 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import me.sungbin.counter.databinding.ActivityMainBinding
 import me.sungbin.counter.databinding.LayoutDialogAddCounterBinding
+import java.util.*
+import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
 
     private val vm: CounterViewModel by viewModels()
-    private val items = ArrayList<String>()
-    private val adapter by lazy { CounterAdapter(items) }
+    private val items = ArrayList<Counter>()
+    private val adapter by lazy { CounterAdapter(items, vm) }
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.rvCounter.adapter = adapter
 
-        vm.counts.observe(this) {
+        vm.names.observe(this) {
             items.add(it)
             adapter.notifyDataSetChanged()
         }
@@ -30,7 +32,12 @@ class MainActivity : AppCompatActivity() {
             val dialog = AlertDialog.Builder(this)
             dialog.setView(layout.root)
             dialog.setPositiveButton(getString(R.string.create)) { _, _ ->
-                vm.counts.value = layout.etCounterName.text.toString()
+                vm.names.postValue(
+                    Counter(
+                        layout.etCounterName.text.toString(),
+                        UUID.randomUUID().toString()
+                    )
+                )
             }
             dialog.show()
         }
