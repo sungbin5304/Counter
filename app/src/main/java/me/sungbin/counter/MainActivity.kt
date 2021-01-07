@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.sungbin.androidutils.extensions.join
 import com.sungbin.androidutils.util.ToastLength
 import com.sungbin.androidutils.util.ToastType
 import com.sungbin.androidutils.util.ToastUtil
@@ -90,9 +91,11 @@ class MainActivity : AppCompatActivity() {
                 }
                 AlertDialog.Builder(this)
                     .setTitle(getString(R.string.dialog_chosen_result_title))
-                    .setMessage()
+                    .setMessage(getString(R.string.dialog_chosen_result, chosenIndex.join(", ")))
+                    .show()
             }
         }
+        dialog.show()
     }
 
 }

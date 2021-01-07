@@ -11,8 +11,8 @@
     <string name="dialog_max_index">최대 숫자</string>
     <string name="dialog_choose_count">뽑을 개수</string>
     <string name="dialog_confirm_input_all">모두 입력해 주세요!</string>
-    <string name="dialog_chosen_result_title">뽑기 결과!</string>
-    <string name="dialog_chosen_result">  </string>
+    <string name="dialog_chosen_result_title">뽑기 결과</string>
+    <string name="dialog_chosen_result">[ %s ]\n\n이렇게 당첨되었어요!</string>
 
 
     <string name="counter_count">%d 점</string>
